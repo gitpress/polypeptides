@@ -12,7 +12,16 @@
 
   
 <script>
-
+  Book = Backbone.Model.extend({
+       initialize: function(){
+             console.log('a new book');
+       },
+    
+      defaults: {
+              name: 'pending title',
+              author: 'pending author'
+              }
+  });
 
 
 </script>
