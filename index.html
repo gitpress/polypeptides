@@ -3,13 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Backbone Example</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
 
+  <nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Backbone Messabout</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Backbone</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
   
 <script>
   Book = Backbone.Model.extend({
@@ -23,9 +47,35 @@
               }
   });
   
-  var newBook = new Book();
+  var learningBackbone = new Book();
+  console.log(learningBackbone.get('name'));
+  learningBackbone.set('name', 'Learning Backbone');
+  
+  if (learningBackbone.has('price'))
+    {console.log(learningBackbone.get('price'))}
+  else
+    {console.log('No price set!')};
+  
+  var masteringBackbone = new Book();
+  masteringBackbone.set('name', 'Mastering Backbone', 'author', 'Andrew');
+  console.log(masteringBackbone.get('name'));
+  masteringBackbone.set('price', 50);
+  
+  if (masteringBackbone.has('price'))
+    {console.log(masteringBackbone.get('price'))}
+  else
+    {console.log('No price set!')};
 
-
+  function priceCheck(x){
+    if (x.has('price'))
+      {console.log(x.get('price'))}
+    else
+      {console.log('No price set!')}   
+  };
+  
+  priceCheck(masteringBackbone);
+  priceCheck(learningBackbone);
+  
 </script>
   
 </body>
