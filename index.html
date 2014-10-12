@@ -44,7 +44,11 @@
       defaults: {
               name: 'pending title',
               author: 'pending author'
-              }
+              },
+    
+      printDetails: function(){
+              console.log(this.get('name') + ' by ' + this.get('author'));
+      }
   });
   
   var learningBackbone = new Book();
@@ -75,6 +79,8 @@
   
   priceCheck(masteringBackbone);
   priceCheck(learningBackbone);
+  console.log(learningBackbone.attributes);
+  masteringBackbone.printDetails();
   
 </script>
   
